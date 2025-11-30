@@ -1,0 +1,5 @@
+{
+  "name": "WiFi QR Scanner",
+  "description": "A PWA to scan and decode WiFi QR codes using local processing.",
+  "requestFramePermissions": []
+}
