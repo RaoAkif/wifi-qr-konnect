@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>WiFi QR Decoder</title>
     <meta name="theme-color" content="#16a34a" />
+    <meta name="description" content="Scan and decode WiFi QR codes instantly directly on your device." />
+    
+    <!-- PWA Settings -->
+    <link rel="manifest" href="/manifest.json" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="WiFi Scan" />
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/96/wifi--v1.png" />
+    <link rel="apple-touch-icon" href="https://img.icons8.com/color/180/wifi--v1.png" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -40,6 +50,19 @@
 </head>
   <body class="bg-gray-50 text-slate-800 antialiased h-screen overflow-hidden">
     <div id="root" class="h-full w-full"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('ServiceWorker registration successful');
+            })
+            .catch((err) => {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>
